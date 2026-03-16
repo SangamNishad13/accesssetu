@@ -68,12 +68,12 @@ export function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl mb-6">About AccessAbility</h1>
+              <h1 className="text-4xl md:text-5xl mb-6">About Access Setu Technologies</h1>
               <p className="text-xl text-gray-600 mb-6">
                 We're on a mission to make the digital world accessible to everyone, regardless of their abilities.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Founded in 2015, AccessAbility has grown from a small consultancy to a leading provider of accessibility services, helping organizations worldwide create inclusive digital experiences.
+                Founded in 2015, Access Setu Technologies has grown from a small consultancy to a leading provider of accessibility services, helping organizations worldwide create inclusive digital experiences. "Setu" means bridge in Sanskrit—we bridge the gap between technology and accessibility.
               </p>
               <Button asChild size="lg">
                 <Link to="/contact">Work With Us</Link>

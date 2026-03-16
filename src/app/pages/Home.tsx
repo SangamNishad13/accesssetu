@@ -174,7 +174,7 @@ export function Home() {
             Ready to Make Your Digital Products Accessible?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Let's discuss how we can help you create inclusive digital experiences.
+            Let's discuss how we can help you create inclusive digital experiences that bridge the gap for all users.
           </p>
           <Button asChild size="lg" variant="secondary">
             <Link to="/contact">Contact Us Today</Link>

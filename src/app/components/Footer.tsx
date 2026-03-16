@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
@@ -8,11 +9,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">A11y</span>
-              </div>
-              <span className="text-white font-semibold">AccessAbility</span>
+            <div className="mb-4 [&_span]:text-white [&_svg_circle]:fill-white [&_svg_path]:stroke-gray-900 [&_svg_line]:stroke-gray-900">
+              <Logo />
             </div>
             <p className="text-sm">
               Making the digital world accessible to everyone through expert
@@ -59,8 +57,8 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Mail size={16} />
-                <a href="mailto:info@accessability.com" className="hover:text-blue-400 transition-colors">
-                  info@accessability.com
+                <a href="mailto:info@accesssetu.com" className="hover:text-blue-400 transition-colors">
+                  info@accesssetu.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -78,7 +76,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} AccessAbility. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Access Setu Technologies. All rights reserved.</p>
         </div>
       </div>
     </footer>
