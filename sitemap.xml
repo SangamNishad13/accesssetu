@@ -1,7 +1,3 @@
-<?php
-// This just shows the template - create a PHP version that generates dynamic sitemap
-// For now, this is a static XML sitemap
-?>
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
