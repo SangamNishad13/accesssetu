@@ -57,9 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $headers = "From: " . $email . "\r\n";
                 $headers .= "Reply-To: " . $email . "\r\n";
+                $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
                 
-                // Note: This will only work if PHP mail() is configured
-                // mail($to, $subject, $body, $headers);
+                // Send email notification
+                $mail_sent = mail($to, $subject, $body, $headers);
+                
+                if (!$mail_sent) {
+                    error_log("Email failed to send to: " . $to);
+                }
                 
                 $form_message = 'Thank you for your message! We\'ll get back to you within 24 hours.';
                 $_POST = array(); // Clear form
