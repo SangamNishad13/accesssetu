@@ -18,9 +18,7 @@ define('SITE_DESC', 'Making Digital Experiences Accessible to Everyone');
 
 // Create database connection
 try {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    
-    if ($conn->connect_error) {
+    if (!$conn || $conn->connect_error) {
         // If database doesn't exist, continue anyway (it can be created later)
         $conn = null;
     }
