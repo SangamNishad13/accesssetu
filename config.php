@@ -13,7 +13,13 @@ $conn = new mysqli(
 
 // Site Configuration
 define('SITE_NAME', 'Access Setu Technologies');
-define('SITE_URL', 'http://localhost/Accesssetu');
+
+// Dynamically set SITE_URL based on current domain
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$scriptPath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+define('SITE_URL', $protocol . '://' . $host . $scriptPath);
+
 define('SITE_DESC', 'Making Digital Experiences Accessible to Everyone');
 
 // Create database connection
