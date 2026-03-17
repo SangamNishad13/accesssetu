@@ -73,7 +73,7 @@ export function About() {
                 We're on a mission to make the digital world accessible to everyone, regardless of their abilities.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Founded in 2015, Access Setu Technologies has grown from a small consultancy to a leading provider of accessibility services, helping organizations worldwide create inclusive digital experiences. "Setu" means bridge in Sanskrit—we bridge the gap between technology and accessibility.
+                Access Setu Technologies helps organizations worldwide create inclusive digital experiences. "Setu" means bridge in Sanskrit—we bridge the gap between technology and accessibility.
               </p>
               <Button asChild size="lg">
                 <Link to="/contact">Work With Us</Link>
@@ -150,7 +150,7 @@ export function About() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl mb-4">Meet Our Team</h2>
@@ -179,10 +179,10 @@ export function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats */}
-      <section className="py-20 bg-blue-600 text-white">
+      {/* <section className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl mb-4">Our Impact</h2>
@@ -201,7 +201,7 @@ export function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-20 bg-white">

@@ -32,21 +32,21 @@ export function Contact() {
     {
       icon: <Mail className="w-6 h-6 text-blue-600" />,
       title: "Email",
-      detail: "info@accessability.com",
-      link: "mailto:info@accessability.com"
+      detail: "hello@accesssetu.com",
+      link: "mailto:hello@accesssetu.com"
     },
-    {
-      icon: <Phone className="w-6 h-6 text-blue-600" />,
-      title: "Phone",
-      detail: "(555) 123-4567",
-      link: "tel:+15551234567"
-    },
-    {
-      icon: <MapPin className="w-6 h-6 text-blue-600" />,
-      title: "Office",
-      detail: "123 Access Lane, Suite 100, San Francisco, CA 94105",
-      link: null
-    },
+    // {
+    //   icon: <Phone className="w-6 h-6 text-blue-600" />,
+    //   title: "Phone",
+    //   detail: "(555) 123-4567",
+    //   link: "tel:+15551234567"
+    // },
+    // {
+    //   icon: <MapPin className="w-6 h-6 text-blue-600" />,
+    //   title: "Office",
+    //   detail: "123 Access Lane, Suite 100, San Francisco, CA 94105",
+    //   link: null
+    // },
     {
       icon: <Clock className="w-6 h-6 text-blue-600" />,
       title: "Business Hours",

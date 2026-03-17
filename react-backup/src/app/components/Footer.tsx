@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -57,19 +57,19 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Mail size={16} />
-                <a href="mailto:info@accesssetu.com" className="hover:text-blue-400 transition-colors">
-                  info@accesssetu.com
+                <a href="mailto:hello@accesssetu.com" className="hover:text-blue-400 transition-colors">
+                  hello@accesssetu.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              {/* <li className="flex items-center gap-2">
                 <Phone size={16} />
                 <a href="tel:+15551234567" className="hover:text-blue-400 transition-colors">
                   (555) 123-4567
                 </a>
-              </li>
+              </li> */}
               <li className="flex items-center gap-2">
-                <MapPin size={16} />
-                <span>123 Access Lane, Suite 100</span>
+                <Clock size={16} />
+                <span><strong>Business Hours:</strong> <br/>Monday - Friday, 9:00 AM - 6:00 PM IST</span>
               </li>
             </ul>
           </div>
