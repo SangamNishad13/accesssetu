@@ -1,9 +1,15 @@
 <?php
+require 'vendor/autoload.php';
 // Database Configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'accesssetu');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$conn = new mysqli(
+    $_ENV['DB_HOST'],
+    $_ENV['DB_USER'],
+    $_ENV['DB_PASS'],
+    $_ENV['DB_NAME']
+);
 
 // Site Configuration
 define('SITE_NAME', 'Access Setu Technologies');
