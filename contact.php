@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($stmt->execute()) {
                 // Send email notification
                 $to = "hello@accesssetu.com";
+                $cc = "sangamnishad13@gmail.com";
                 $subject = "New Contact Form Submission: " . $name;
                 $body = "New contact form submission:\n\n";
                 $body .= "Name: " . $name . "\n";
@@ -57,9 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $headers = "From: " . $email . "\r\n";
                 $headers .= "Reply-To: " . $email . "\r\n";
+                $headers .= "Cc: " . $cc . "\r\n";
                 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
                 
-                // Send email notification
+                // Send email notification to both addresses
                 $mail_sent = mail($to, $subject, $body, $headers);
                 
                 if (!$mail_sent) {
