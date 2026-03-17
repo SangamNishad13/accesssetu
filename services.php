@@ -2,7 +2,8 @@
 session_start();
 require_once 'config.php';
 
-$page_title = "Our Services - Access Setu Technologies";
+$page_title = "Accessibility Services - Testing, Remediation & Consultation - Access Setu";
+$page_description = "Comprehensive accessibility services including WCAG testing, remediation, consultation, and training programs for digital accessibility compliance.";
 ?>
 
 <?php include 'includes/header.php'; ?>

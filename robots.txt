@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.env
+Disallow: /vendor/
+Disallow: /.git
+Disallow: /setup.sql
+Disallow: /config.php
+
+# Crawl-delay (optional - adjust as needed)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: http://localhost/Accesssetu/sitemap.xml
+Sitemap: https://accesssetu.com/sitemap.xml

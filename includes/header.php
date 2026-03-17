@@ -5,6 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $page_title ?? SITE_NAME; ?></title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<?php echo $page_description ?? SITE_DESC; ?>">
+    <meta name="keywords" content="accessibility, WCAG, testing, remediation, inclusive design, web accessibility">
+    <meta name="author" content="Access Setu Technologies">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<?php echo SITE_URL . $_SERVER['REQUEST_URI']; ?>">
+    
+    <!-- Open Graph Tags (Social Media) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo SITE_URL . $_SERVER['REQUEST_URI']; ?>">
+    <meta property="og:title" content="<?php echo $page_title ?? SITE_NAME; ?>">
+    <meta property="og:description" content="<?php echo $page_description ?? SITE_DESC; ?>">
+    <meta property="og:image" content="<?php echo SITE_URL; ?>/images/og-image.jpg">
+    <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo $page_title ?? SITE_NAME; ?>">
+    <meta name="twitter:description" content="<?php echo $page_description ?? SITE_DESC; ?>">
+    <meta name="twitter:image" content="<?php echo SITE_URL; ?>/images/og-image.jpg">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Access Setu Technologies",
+        "alternateName": "Access Setu",
+        "url": "<?php echo SITE_URL; ?>",
+        "logo": "<?php echo SITE_URL; ?>/images/logo.jpg",
+        "description": "<?php echo SITE_DESC; ?>",
+        "foundingDate": "2024",
+        "email": "hello@accesssetu.com",
+        "sameAs": [
+            "https://www.facebook.com/accesssetu",
+            "https://www.linkedin.com/company/accesssetu",
+            "https://twitter.com/accesssetu"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/styles/main.css">
     <link rel="icon" href="<?php echo SITE_URL; ?>/favicon.ico">
 </head>

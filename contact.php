@@ -2,7 +2,8 @@
 session_start();
 require_once 'config.php';
 
-$page_title = "Contact Us - Access Setu Technologies";
+$page_title = "Contact Us - Access Setu Technologies | Get Accessibility Solutions";
+$page_description = "Get in touch with Access Setu's accessibility experts. Contact us for WCAG compliance testing, remediation services, and consultation about your digital accessibility needs.";
 
 // Handle form submission
 $form_message = '';

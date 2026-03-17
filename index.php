@@ -3,6 +3,7 @@ session_start();
 require_once 'config.php';
 
 $page_title = "Making Digital Experiences Accessible - Access Setu Technologies";
+$page_description = "Expert accessibility testing, remediation, and consultation services. WCAG compliant digital solutions for websites and applications.";
 ?>
 
 <?php include 'includes/header.php'; ?>

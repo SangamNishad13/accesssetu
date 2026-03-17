@@ -2,7 +2,8 @@
 session_start();
 require_once 'config.php';
 
-$page_title = "About Us - Access Setu Technologies";
+$page_title = "About Us - Access Setu Technologies | Accessibility Experts";
+$page_description = "Learn about Access Setu's mission to make digital experiences accessible. Meet our WCAG certified experts and our proven track record of 500+ successful projects.";
 ?>
 
 <?php include 'includes/header.php'; ?>
