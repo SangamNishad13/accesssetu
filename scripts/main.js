@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+
+                // Focus the target element for accessibility (skip link)
+                setTimeout(() => {
+                    if (!targetSection.hasAttribute('tabindex')) {
+                        targetSection.setAttribute('tabindex', '-1');
+                    }
+                    targetSection.focus();
+                }, 100);
             }
         });
     });
