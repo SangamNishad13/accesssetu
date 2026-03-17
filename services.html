@@ -8,6 +8,7 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
@@ -54,7 +55,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="mainContent" tabindex="-1">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
@@ -70,14 +71,14 @@
             <div class="container">
                 <div class="tabs-container">
                     <div class="tabs-nav">
-                        <button class="tab-btn active" data-tab="testing">Testing</button>
-                        <button class="tab-btn" data-tab="remediation">Remediation</button>
-                        <button class="tab-btn" data-tab="consultation">Consultation</button>
-                        <button class="tab-btn" data-tab="training">Training</button>
+                        <button class="tab-btn active" data-tab="testing" role="tab" aria-selected="true" id="testingTab" aria-controls="testing">Testing</button>
+                        <button class="tab-btn" data-tab="remediation" role="tab" aria-selected="false" id="remediationTab" aria-controls="remediation" tabindex="-1">Remediation</button>
+                        <button class="tab-btn" data-tab="consultation" role="tab" aria-selected="false" id="consultationTab" aria-controls="consultation" tabindex="-1">Consultation</button>
+                        <button class="tab-btn" data-tab="training" role="tab" aria-selected="false" id="trainingTab" aria-controls="training" tabindex="-1">Training</button>
                     </div>
 
                     <!-- Testing Tab -->
-                    <div class="tab-content active" id="testing">
+                    <div class="tab-content active" id="testing" role="tabpanel" aria-labelledby="testingTab">
                         <div class="service-detail">
                             <div class="service-detail-content">
                                 <div class="service-detail-text">
@@ -146,7 +147,7 @@
                     </div>
 
                     <!-- Remediation Tab -->
-                    <div class="tab-content" id="remediation">
+                    <div class="tab-content" id="remediation" role="tabpanel" aria-labelledby="remediationTab">
                         <div class="service-detail">
                             <div class="service-detail-content">
                                 <div class="service-detail-text">
@@ -212,7 +213,7 @@
                     </div>
 
                     <!-- Consultation Tab -->
-                    <div class="tab-content" id="consultation">
+                    <div class="tab-content" id="consultation" role="tabpanel" aria-labelledby="consultationTab">
                         <div class="service-detail">
                             <div class="service-detail-content">
                                 <div class="service-detail-text">
@@ -280,7 +281,7 @@
                     </div>
 
                     <!-- Training Tab -->
-                    <div class="tab-content" id="training">
+                    <div class="tab-content" id="training" role="tabpanel" aria-labelledby="trainingTab">
                         <div class="service-detail">
                             <div class="service-detail-content">
                                 <div class="service-detail-text">
