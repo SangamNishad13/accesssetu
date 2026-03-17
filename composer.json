@@ -2,8 +2,8 @@
     "name": "accesssetu/website",
     "description": "Access Setu Technologies - Making Digital Experiences Accessible to Everyone",
     "require": {
-        "php": "^7.4",
-        "vlucas/dotenv": "^5.4"
+        "php": "^8.0",
+        "symfony/dotenv": "^6.0"
     },
     "require-dev": {
         "composer/composer": "^2.0"

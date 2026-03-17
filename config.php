@@ -1,8 +1,8 @@
 <?php
 require 'vendor/autoload.php';
 // Database Configuration
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+$dotenv = new Symfony\Component\Dotenv\Dotenv();
+$dotenv->loadEnv(__DIR__ . '/.env');
 
 $conn = new mysqli(
     $_ENV['DB_HOST'],
