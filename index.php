@@ -105,7 +105,7 @@ $page_title = "Making Digital Experiences Accessible - Access Setu Technologies"
             <div class="container">
                 <div class="why-choose-content">
                     <div class="why-choose-image">
-                        <img src="https://images.unsplash.com/photo-1489925461942-d8f490a04588?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY2Nlc3NpYmlsaXR5JTIwdGVjaG5vbG9neSUyMHNjcmVlbiUyMHJlYWRlcnxlbnwxfHx8fDE3NzM2NTk0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                        <img src="<?php echo SITE_URL; ?>/images/photo-1489925461942-d8f490a04588.jpg"
                             alt="Accessibility technology" />
                     </div>
                     <div class="why-choose-text">
