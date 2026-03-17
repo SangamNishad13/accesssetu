@@ -56,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $body .= "Message: " . $message . "\n";
                 $body .= "Submitted at: " . date('Y-m-d H:i:s') . "\n";
                 
-                $headers = "From: " . $email . "\r\n";
+                $headers = "From: hello@accesssetu.com\r\n";
                 $headers .= "Reply-To: " . $email . "\r\n";
-                $headers .= "Cc: " . $cc . "\r\n";
+                $headers .= "Cc: sangamnishad13@gmail.com\r\n";
                 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
                 
                 // Send email notification to both addresses
