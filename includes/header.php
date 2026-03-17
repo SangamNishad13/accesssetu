@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $page_title ?? SITE_NAME; ?></title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/styles/main.css">
+    <link rel="icon" href="<?php echo SITE_URL; ?>/favicon.ico">
 </head>
 
 <body>

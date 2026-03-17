@@ -66,7 +66,7 @@
         </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script src="<?php echo SITE_URL; ?>/scripts/main.js"></script>
 </body>
 
 </html>
