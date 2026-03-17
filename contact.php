@@ -179,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="contact-image">
-                            <img src="https://images.unsplash.com/photo-1564931768730-7e4d8e240044?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHN3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGUlMjBhY2Nlc3NpYmlsaXR5fGVufDF8fHx8MTc3MzY1OTQyMnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Web development and accessibility" />
+                            <img src="<?php echo SITE_URL; ?>/images/photo-1564931768730-7e4d8e240044.jpg" alt="Web development and accessibility" />
                         </div>
                     </div>
                 </div>
