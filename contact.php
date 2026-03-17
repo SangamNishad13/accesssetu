@@ -1,61 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Access Setu Technologies</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" href="favicon.ico">
-</head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <circle cx="20" cy="20" r="20" fill="#2563EB" />
-                        <path d="M8 24C8 24 12 14 20 14C28 14 32 24 32 24" stroke="white" stroke-width="2.5"
-                            stroke-linecap="round" fill="none" />
-                        <line x1="12" y1="24" x2="12" y2="28" stroke="white" stroke-width="2.5"
-                            stroke-linecap="round" />
-                        <line x1="20" y1="14" x2="20" y2="28" stroke="white" stroke-width="2.5"
-                            stroke-linecap="round" />
-                        <line x1="28" y1="24" x2="28" y2="28" stroke="white" stroke-width="2.5"
-                            stroke-linecap="round" />
-                        <line x1="6" y1="28" x2="34" y2="28" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-                        <circle cx="20" cy="10" r="2" fill="white" />
-                        <path d="M20 12C20 12 18 13 18 15M20 12C20 12 22 13 22 15" stroke="white" stroke-width="1.5"
-                            stroke-linecap="round" />
-                    </svg>
-                    <div class="logo-icon">
-                        <div class="logo-text">
-                            <span class="logo-main">Access Setu</span>
-                            <span class="logo-sub">Technologies</span>
-                        </div>
-                    </div>
-                </a>
+<?php
+session_start();
+require_once 'config.php';
 
-                <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                    <a href="contact.html" class="btn btn-primary">Get Started</a>
-                </div>
+$page_title = "Contact Us - Access Setu Technologies";
 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
-    </header>
+// Handle form submission
+$form_message = '';
+$form_error = '';
 
-    <!-- Main Content -->
-    <main id="main-content" tabindex="-1">
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Sanitize and validate form data
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $company = htmlspecialchars(trim($_POST['company'] ?? ''));
+    $service = htmlspecialchars(trim($_POST['service'] ?? ''));
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+    
+    // Validation
+    if (empty($name)) {
+        $form_error = 'Name is required.';
+    } elseif (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $form_error = 'Valid email is required.';
+    } elseif (empty($message)) {
+        $form_error = 'Message is required.';
+    } else {
+        // If database connection exists, save to database
+        if ($conn) {
+            // Create table if it doesn't exist
+            $create_table = "CREATE TABLE IF NOT EXISTS contact_submissions (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL,
+                company VARCHAR(255),
+                service VARCHAR(100),
+                message LONGTEXT NOT NULL,
+                submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )";
+            
+            $conn->query($create_table);
+            
+            // Insert contact form data
+            $stmt = $conn->prepare("INSERT INTO contact_submissions (name, email, company, service, message) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $name, $email, $company, $service, $message);
+            
+            if ($stmt->execute()) {
+                // Send email notification
+                $to = "hello@accesssetu.com";
+                $subject = "New Contact Form Submission: " . $name;
+                $body = "New contact form submission:\n\n";
+                $body .= "Name: " . $name . "\n";
+                $body .= "Email: " . $email . "\n";
+                $body .= "Company: " . $company . "\n";
+                $body .= "Service: " . $service . "\n";
+                $body .= "Message: " . $message . "\n";
+                $body .= "Submitted at: " . date('Y-m-d H:i:s') . "\n";
+                
+                $headers = "From: " . $email . "\r\n";
+                $headers .= "Reply-To: " . $email . "\r\n";
+                
+                // Note: This will only work if PHP mail() is configured
+                // mail($to, $subject, $body, $headers);
+                
+                $form_message = 'Thank you for your message! We\'ll get back to you within 24 hours.';
+                $_POST = array(); // Clear form
+            } else {
+                $form_error = 'Error saving your message. Please try again.';
+            }
+            $stmt->close();
+        } else {
+            $form_error = 'Database connection error. Please try again later.';
+        }
+    }
+}
+?>
+
+<?php include 'includes/header.php'; ?>
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
@@ -77,37 +97,45 @@
                             <p>Fill out the form below and we'll get back to you within 24 hours.</p>
                         </div>
                         <div class="card-content">
-                            <form id="contactForm" class="contact-form">
+                            <?php if ($form_error): ?>
+                                <div class="alert alert-error"><?php echo $form_error; ?></div>
+                            <?php endif; ?>
+                            <?php if ($form_message): ?>
+                                <div class="alert alert-success"><?php echo $form_message; ?></div>
+                            <?php endif; ?>
+                            
+                            <form method="POST" class="contact-form">
+                                <p class="form-note">* Required fields</p>
                                 <div class="form-group">
                                     <label for="name">Name *</label>
-                                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                                    <input type="text" id="name" name="name" required placeholder="Your full name" value="<?php echo htmlspecialchars($_POST['name'] ?? ''); ?>">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" required placeholder="your.email@company.com">
+                                    <input type="email" id="email" name="email" required placeholder="your.email@company.com" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="company">Company</label>
-                                    <input type="text" id="company" name="company" placeholder="Your company name">
+                                    <input type="text" id="company" name="company" placeholder="Your company name" value="<?php echo htmlspecialchars($_POST['company'] ?? ''); ?>">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="service">Service of Interest</label>
                                     <select id="service" name="service">
                                         <option value="">Select a service</option>
-                                        <option value="testing">Accessibility Testing</option>
-                                        <option value="remediation">Remediation Services</option>
-                                        <option value="consultation">Consultation</option>
-                                        <option value="training">Training & Workshops</option>
-                                        <option value="other">Other</option>
+                                        <option value="testing" <?php echo ($_POST['service'] ?? '') === 'testing' ? 'selected' : ''; ?>>Accessibility Testing</option>
+                                        <option value="remediation" <?php echo ($_POST['service'] ?? '') === 'remediation' ? 'selected' : ''; ?>>Remediation Services</option>
+                                        <option value="consultation" <?php echo ($_POST['service'] ?? '') === 'consultation' ? 'selected' : ''; ?>>Consultation</option>
+                                        <option value="training" <?php echo ($_POST['service'] ?? '') === 'training' ? 'selected' : ''; ?>>Training & Workshops</option>
+                                        <option value="other" <?php echo ($_POST['service'] ?? '') === 'other' ? 'selected' : ''; ?>>Other</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="message">Message *</label>
-                                    <textarea id="message" name="message" rows="6" required placeholder="Tell us about your accessibility needs..."></textarea>
+                                    <textarea id="message" name="message" rows="6" required placeholder="Tell us about your accessibility needs..."><?php echo htmlspecialchars($_POST['message'] ?? ''); ?></textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-lg full-width">Send Message</button>
@@ -157,7 +185,7 @@
                 </div>
             </div>
         </section>
-    </main>
+
         <!-- FAQ Section -->
         <section class="faq-section">
             <div class="faq-section-container">
@@ -203,66 +231,5 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#2563EB" />
-                                <path d="M8 24C8 24 12 14 20 14C28 14 32 24 32 24" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" />
-                                <line x1="12" y1="24" x2="12" y2="28" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-                                <line x1="20" y1="14" x2="20" y2="28" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-                                <line x1="28" y1="24" x2="28" y2="28" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-                                <line x1="6" y1="28" x2="34" y2="28" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-                                <circle cx="20" cy="10" r="2" fill="white" />
-                                <path d="M20 12C20 12 18 13 18 15M20 12C20 12 22 13 22 15" stroke="white" stroke-width="1.5" stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <div class="logo-text">
-                            <span class="logo-main">Access Setu</span>
-                            <span class="logo-sub">Technologies</span>
-                        </div>
-                    </div>
-                    <p>Making the digital world accessible to everyone through expert testing, consultation, and remediation services.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li>Accessibility Testing</li>
-                        <li>WCAG Compliance Audit</li>
-                        <li>Remediation Services</li>
-                        <li>Training & Consultation</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <div class="contact-item">
-                        <span><strong>Email:</strong><br> <a href="mailto:hello@accesssetu.com">hello@accesssetu.com</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span><strong>Business Hours:</strong><br>Monday - Friday, 9:00 AM - 6:00 PM IST</span>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Access Setu Technologies. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="scripts/main.js"></script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>
