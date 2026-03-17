@@ -21,7 +21,7 @@ $page_title = "Making Digital Experiences Accessible - Access Setu Technologies"
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img src="<?php echo SITE_URL; ?>/images/team-collaboration.jpg"
+                        <img src="https://images.unsplash.com/photo-1758873268663-5a362616b5a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwdGVhbSUyMGNvbGxhYm9yYXRpb24lMjBvZmZpY2V8ZW58MXx8fHwxNzczNjUyOTY0fDA&ixlib=rb-4.1.0&q=80&w=1080"
                             alt="Diverse team collaborating" />
                     </div>
                 </div>
