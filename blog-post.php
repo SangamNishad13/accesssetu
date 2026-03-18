@@ -100,8 +100,8 @@ $blog_content = [
     ]
 ];
 
-// Get the blog post ID from URL
-$post_slug = $_GET['slug'] ?? null;
+// Get the blog post slug from URL
+$post_slug = $_GET['slug'] ?? (isset($_SERVER['PATH_INFO']) ? trim($_SERVER['PATH_INFO'], '/') : null);
 
 if (!$post_slug || !isset($blog_content[$post_slug])) {
     header("Location: " . SITE_URL . "/blog");
