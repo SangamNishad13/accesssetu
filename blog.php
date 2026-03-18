@@ -24,7 +24,7 @@ $blog_posts = [
         'author' => 'Access Setu Team',
         'date' => 'March 15, 2026',
         'category' => 'Web Development',
-        'featured_image' => 'https://images.unsplash.com/photo-1600694693626-aa331800ba8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
+        'featured_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
         'read_time' => '6 min read'
     ],
     [

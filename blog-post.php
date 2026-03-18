@@ -47,7 +47,7 @@ $blog_content = [
         'author' => 'Access Setu Team',
         'date' => 'March 15, 2026',
         'category' => 'Web Development',
-        'featured_image' => 'https://images.unsplash.com/photo-1600694693626-aa331800ba8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+        'featured_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
         'read_time' => '6 min read',
         'content' => '
             <p>Web forms are a critical part of user interaction, but they\'re often inaccessible. In this guide, we\'ll show you how to create forms that work for everyone.</p>
