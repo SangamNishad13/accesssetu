@@ -9,7 +9,7 @@ $blog_content = [
         'author' => 'Access Setu Team',
         'date' => 'March 18, 2026',
         'category' => 'WCAG',
-        'featured_image' => 'wcag-compliance.jpg',
+        'featured_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
         'read_time' => '8 min read',
         'content' => '
             <p>Web Content Accessibility Guidelines (WCAG) 2.1 is the international standard for web accessibility. In this comprehensive guide, we\'ll walk you through the four principles of WCAG and how to implement them in your projects.</p>
@@ -47,7 +47,7 @@ $blog_content = [
         'author' => 'Access Setu Team',
         'date' => 'March 15, 2026',
         'category' => 'Web Development',
-        'featured_image' => 'accessible-forms.jpg',
+        'featured_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
         'read_time' => '6 min read',
         'content' => '
             <p>Web forms are a critical part of user interaction, but they\'re often inaccessible. In this guide, we\'ll show you how to create forms that work for everyone.</p>
@@ -73,7 +73,7 @@ $blog_content = [
         'author' => 'Access Setu Team',
         'date' => 'March 12, 2026',
         'category' => 'Web Development',
-        'featured_image' => 'alt-text.jpg',
+        'featured_image' => 'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
         'read_time' => '5 min read',
         'content' => '
             <p>Alt text (alternative text) is critical for web accessibility. It describes images for users who cannot see them and helps search engines understand your content.</p>
@@ -136,7 +136,7 @@ $page_description = "Read: " . $post['title'] . " on the Access Setu blog. Learn
         <!-- Blog Featured Image -->
         <section class="blog-featured-image">
             <div class="container">
-                <img src="<?php echo SITE_URL; ?>/images/<?php echo $post['featured_image']; ?>" 
+                <img src="<?php echo $post['featured_image']; ?>" 
                      alt="<?php echo $post['title']; ?>" 
                      loading="lazy">
             </div>

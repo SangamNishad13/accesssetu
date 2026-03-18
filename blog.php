@@ -14,7 +14,7 @@ $blog_posts = [
         'author' => 'Access Setu Team',
         'date' => 'March 18, 2026',
         'category' => 'WCAG',
-        'featured_image' => 'wcag-compliance.jpg',
+        'featured_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
         'read_time' => '8 min read'
     ],
     [
@@ -24,7 +24,7 @@ $blog_posts = [
         'author' => 'Access Setu Team',
         'date' => 'March 15, 2026',
         'category' => 'Web Development',
-        'featured_image' => 'accessible-forms.jpg',
+        'featured_image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
         'read_time' => '6 min read'
     ],
     [
@@ -34,7 +34,7 @@ $blog_posts = [
         'author' => 'Access Setu Team',
         'date' => 'March 12, 2026',
         'category' => 'Web Development',
-        'featured_image' => 'alt-text.jpg',
+        'featured_image' => 'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
         'read_time' => '5 min read'
     ]
 ];
@@ -60,7 +60,7 @@ $blog_posts = [
                     <?php foreach ($blog_posts as $post): ?>
                         <article class="blog-card">
                             <div class="blog-image">
-                                <img src="<?php echo SITE_URL; ?>/images/<?php echo $post['featured_image']; ?>" 
+                                <img src="<?php echo $post['featured_image']; ?>" 
                                      alt="<?php echo $post['title']; ?>" 
                                      loading="lazy">
                             </div>
